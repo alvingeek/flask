@@ -12,7 +12,7 @@ def check_signature(token):
     tmp_list = [token, timestamp, nonce]
     tmp_list.sort()
     tmp_str = "%s%s%s" % tuple(tmp_list)
-    hash_str = hashlib.sha1(tmp_str).hexdigest()
+    hash_str = hashlib.sha1(tmp_str.encode('utf-8')).hexdigest()
     if hash_str == signature:
         return True
     else:
@@ -26,9 +26,9 @@ def index():
         if check_signature(TOKEN):
             return echo_str
         else:
-            return None
+            return ''
     else:
-        return 'None'
+        return ''
 
 
 if __name__ == '__main__':
