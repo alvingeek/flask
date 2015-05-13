@@ -26,7 +26,7 @@ def index():
         if check_signature(TOKEN):
             return echo_str
         else:
-            return ''
+            return 'ok'
     else:
         return ''
 
