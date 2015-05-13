@@ -20,7 +20,6 @@ def check_signature(token):
             return False
     except TypeError as e:
         print(str(e))
-    finally:
         return False
 
 
