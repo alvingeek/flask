@@ -1,8 +1,7 @@
 import hashlib
+import time
 from lxml import etree
 from flask import Flask, request, render_template
-import time
-from lib.WXBizMsgCrypt import WXBizMsgCrypt
 
 TOKEN = 'weixin'
 app = Flask(__name__)
@@ -24,33 +23,6 @@ def check_signature(token):
     except TypeError as e:
         print(str(e))
         return False
-
-
-def msg_handler():
-    encodingAESKey = "mLGUf7FULWK5e0kECMlf8hw4XiE3s3S2Wc0cLUyiSyW"
-    to_xml = """
-    <xml>
-        <ToUserName><![CDATA[oia2TjjewbmiOUlr6X-1crbLOvLw]]></ToUserName>
-        <FromUserName><![CDATA[gh_7f083739789a]]></FromUserName>
-        <CreateTime>1407743423</CreateTime>
-        <MsgType><![CDATA[video]]></MsgType>
-        <Video>
-            <MediaId><![CDATA[eYJ1MbwPRJtOvIEabaxHs7TX2D-HV71s79GUxqdUkjm6Gs2Ed1KF3ulAOA9H1xG0]]></MediaId>
-            <Title><![CDATA[testCallBackReplyVideo]]></Title>
-            <Description><![CDATA[testCallBackReplyVideo]]></Description>
-        </Video>
-    </xml>
-    """
-    token = "weixin"
-    signature = request.args.get("signature")
-    timestamp = request.args.get("timestamp")
-    nonce = request.args.get("nonce")
-    appid = "wx1c16712b3ad9ffa8"
-
-    # 测试加密接口
-    encryp_test = WXBizMsgCrypt(token, encodingAESKey, appid)
-    ret, encrypt_xml = encryp_test.EncryptMsg(to_xml, nonce)
-    return ret,
 
 
 def post():
