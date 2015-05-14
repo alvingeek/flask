@@ -1,0 +1,7 @@
+<xml>
+<ToUserName><![CDATA[{{ view_obj.to_user }}]]></ToUserName>
+<FromUserName><![CDATA[{{ view_obj.from_user }}]]></FromUserName>
+<CreateTime>{{ view_obj.create_time }}</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[{{ view_obj.content }}]]></Content>
+</xml>
