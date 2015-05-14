@@ -52,7 +52,7 @@ def index():
             return 'ok'
     # 消息处理
     else:
-        return post()
+        return ""
 
 
 if __name__ == '__main__':
