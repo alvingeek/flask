@@ -1,3 +1,4 @@
+# encoding:utf-8
 import hashlib
 import time
 from lxml import etree
@@ -52,7 +53,7 @@ def index():
             return 'ok'
     # 消息处理
     else:
-        return ""
+        return post()
 
 
 if __name__ == '__main__':
